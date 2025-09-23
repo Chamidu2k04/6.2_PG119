@@ -12,10 +12,10 @@ This project predicts student dropout using a Kaggle dataset on Portuguese highe
 # Group Members and Roles
 - Member 1 IT24101839 : Handling Missing Data.
 - Member 2 IT24104027 : Encoding Categorical Variables.
-- Member 3 IT24101627 : Outlier Removal.
-- Member 4 IT24101987 : Normalization/Scaling.
+- Member 3 IT24101554 : Outlier Removal.
+- Member 4 IT24101627 : Normalization/Scaling.
 - Member 5 IT24101966 : Feature Engineering.
-- Member 6 IT24101554 : Feature Selection/Dimension Reduction.
+- Member 6 IT24101987 : Feature Selection/Dimension Reduction.
 
 # How to Run
 1. Open in Google Colab.
