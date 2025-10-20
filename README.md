@@ -1,25 +1,141 @@
-# Student Dropout Prediction 
+1. SVM (Support Vector Machine)
 
-#Overview
-This project predicts student dropout using a Kaggle dataset on Portuguese higher education students. Features include demographics, academics, and economic indicators. Target: 'Dropout', 'Enrolled', 'Graduate'.
+Performance:
 
-# Dataset Details
-- Source: Kaggle (Predicting Students Dropout and Academic Success).
-- File: raw/rawDataset.csv (semicolon-separated, 37 columns, ~1000+ rows).
-- Columns: Marital status, Application mode, ..., Target.
-- Challenges: Categorical encodings, outliers in ages/grades, scale differences.
+Performs well with smaller to medium-sized datasets.
 
-# Group Members and Roles
-- Member 1 IT24101839 : Handling Missing Data.
-- Member 2 IT24104027 : Encoding Categorical Variables.
-- Member 3 IT24101554 : Outlier Removal.
-- Member 4 IT24101627 : Normalization/Scaling.
-- Member 5 IT24101966 : Feature Engineering.
-- Member 6 IT24101987 : Feature Selection/Dimension Reduction.
+Effective in high-dimensional spaces (many features).
 
-# How to Run
-1. Open in Google Colab.
-2. Mount Google Drive: `from google.colab import drive; drive.mount('/content/drive')`.
-3. Run cells sequentially in notebooks/.
-4. Outputs saved to results/ in Drive.
-5. For group_pipeline.ipynb: Run all for integrated processed dataset.
+Challenges:
+
+Sensitive to parameter tuning (C, kernel, gamma).
+
+Computationally expensive on large datasets.
+
+Not naturally suited for multi-class classification; requires strategies like one-vs-one or one-vs-rest.
+
+Expected Behavior:
+
+With proper hyperparameter tuning, SVM can accurately separate dropout, graduate, and enrolled classes.
+
+May struggle if classes overlap significantly.
+
+2. Logistic Regression
+
+Performance:
+
+Fast, interpretable, and good for linearly separable data.
+
+Provides probability estimates for each class.
+
+Challenges:
+
+Limited performance for non-linear relationships.
+
+Sensitive to multicollinearity among features.
+
+Expected Behavior:
+
+Gives baseline performance.
+
+Works well with well-scaled numeric features and one-hot encoded categorical variables.
+
+3. Decision Tree
+
+Performance:
+
+Simple, interpretable, and can capture non-linear patterns.
+
+Handles categorical and numerical data.
+
+Challenges:
+
+Prone to overfitting, especially with deep trees.
+
+Sensitive to small changes in the data.
+
+Expected Behavior:
+
+May achieve high training accuracy but can overfit if not pruned or limited in depth.
+
+Easy to visualize and understand decision rules.
+
+4. MLP (Multi-Layer Perceptron)
+
+Performance:
+
+Can capture complex, non-linear relationships.
+
+Flexible with architecture (hidden layers, neurons, activation functions).
+
+Challenges:
+
+Requires careful tuning (learning rate, hidden layers, alpha, activation).
+
+Sensitive to feature scaling.
+
+Longer training time, especially on larger datasets.
+
+Expected Behavior:
+
+Can outperform simpler models if enough data and proper tuning are available.
+
+Might overfit if regularization is insufficient.
+
+5. K-Means Clustering (Unsupervised)
+
+Performance:
+
+Useful for exploratory analysis and grouping similar students.
+
+Provides approximate accuracy by mapping clusters to actual classes.
+
+Challenges:
+
+No true supervision; accuracy is approximate.
+
+Sensitive to initialization and number of clusters.
+
+Works best with well-scaled features.
+
+Expected Behavior:
+
+Can identify groups of students with similar characteristics.
+
+Helps understand patterns but is not as accurate as supervised models for prediction.
+
+6. Random Forest
+
+Performance:
+
+Ensemble of decision trees; reduces overfitting.
+
+Handles non-linear relationships and high-dimensional data.
+
+Robust to outliers and missing values.
+
+Challenges:
+
+Less interpretable than single decision trees.
+
+Can be computationally expensive for very large forests or datasets.
+
+Expected Behavior:
+
+Often achieves the highest or near-highest accuracy.
+
+Stable predictions across different random seeds.
+
+Works well even if some features are noisy or irrelevant.
+
+Overall Challenges & Considerations
+
+Class Imbalance: Needs balancing (e.g., SMOTE) to prevent bias toward majority class.
+
+Feature Selection: Reduces noise and improves performance; top 10 features were used.
+
+Scaling: Required for SVM and MLP to converge properly.
+
+Overfitting vs Generalization: Tree-based and neural network models can overfit; hyperparameter tuning is critical.
+
+Interpretability vs Accuracy: Simpler models (Logistic, Decision Tree) are interpretable; complex models (MLP, Random Forest) are more accurate but less interpretable.
